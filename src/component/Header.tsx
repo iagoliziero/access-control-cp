@@ -1,7 +1,7 @@
 const Header = () => {
     return ( 
         <header className="header">
-            Acess Control
+            <h2 className="h2"> Header Access Control </h2>
         </header>
      );
 }

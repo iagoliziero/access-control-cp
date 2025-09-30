@@ -1,5 +1,6 @@
-import { Mail, User } from "lucide-react";
+import { Mail, User, UsersRound } from "lucide-react";
 import Input from "../../component/Input";
+import Button from "../../component/Button";
 
 const Cadastro = () => {
   return (
@@ -8,6 +9,15 @@ const Cadastro = () => {
         <h1 className="title">Cadastrar Usuário</h1>
       </div>
       <form className="card">
+        <div>
+          <Input
+            id="name"
+            name="name"
+            placeholder="Digite Seu name"
+            label="Name *"
+            icon={<UsersRound className="text-white/70" />}
+          />
+        </div>
         <div>
           <Input
             id="username"
@@ -26,6 +36,9 @@ const Cadastro = () => {
             icon={<Mail className="text-white/70" />}
           />
         </div>
+        <Button onClick={function(){alert("Funciono")}}>
+            Cadastrar
+        </Button>
       </form>
     </section>
   );

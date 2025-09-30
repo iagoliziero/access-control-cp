@@ -1,8 +1,8 @@
 import type { IButton } from "../interfaces/IButton";
 
-const Button = ({children, onClick}: IButton) => {
+const Button = ({children, onClick, type}: IButton) => {
     return (
-        <button onClick={onClick} className="button__card">
+        <button type={type} onClick={onClick} className="button__card">
             {children}
         </button>
     );

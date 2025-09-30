@@ -1,15 +1,15 @@
-import type { DataForm } from "../interfaces/inputInterface";
 import type { FieldErrors, UseFormRegister } from "react-hook-form";
+import type { IDataForm } from "../interfaces/IdataForm";
 
 type InputLoginProps = {
   label: string;
   placeholder: string;
   type?: string;
   id: string;
-  name: keyof DataForm;
+  name: keyof IDataForm;
   value?: string;
-  register?: UseFormRegister<DataForm>;
-  errors?: FieldErrors<DataForm>;
+  register?: UseFormRegister<IDataForm>;
+  errors?: FieldErrors<IDataForm>;
   rules?: object;
   disabled?: boolean;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;

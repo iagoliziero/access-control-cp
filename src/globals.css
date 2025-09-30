@@ -13,4 +13,17 @@
     .footer {
         @apply w-screen border-t-1 p-5 text-center text-white/90;
     }
+    
+    .section {
+        @apply max-w-2xl flex flex-col gap-4;
+
+        & .title {
+            @apply text-3xl font-semibold text-emerald-700/70 text-center;
+        }
+
+        & .card {
+        @apply w-full h-auto p-10 bg-black/15 rounded-3xl flex flex-col gap-5;
+    }
+        
+    }
 }

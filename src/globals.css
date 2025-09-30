@@ -1,19 +1,16 @@
 @import "tailwindcss";
 
 @layer {
-    .layout {
-        @apply w-full h-screen p-5 items-center flex flex-col justify-between bg-gradient-to-r text-white/80 from-slate-800 via-gray-800 to-slate-800
-    }
 
     .h2 {
         @apply text-lg font-semibold
     }
 
     .header {
-        @apply w-screen border-b-1 p-5 text-center text-white/80;
+        @apply w-screen border-b-1 p-5 text-center text-white/90;
     }
 
     .footer {
-        @apply w-screen border-t-1 p-5 text-center text-white/80;
+        @apply w-screen border-t-1 p-5 text-center text-white/90;
     }
 }

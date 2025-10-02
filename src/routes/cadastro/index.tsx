@@ -21,6 +21,14 @@ const Cadastro = () => {
       const BASE_URL:string = "http://localhost:3000/users";
 
       try {
+        
+        const checkResponse  = await fetch(`${BASE_URL}?email=${data.email}`);
+        const existingUsers = await checkResponse.json();
+
+        if (existingUsers.length > 0) {
+          alert("Email já cadastrado");
+          return;
+        }
 
         const response = await fetch(BASE_URL, {
           method: "POST",

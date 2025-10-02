@@ -27,6 +27,10 @@
         & .button__card {
             @apply w-full p-4 bg-emerald-700/70 rounded-xl text-white/90 font-semibold cursor-pointer mt-2;
             }
+        
+        & .p-errors__input {
+            @apply text-sm text-yellow-500 font-semibold mt-3;
+            }
         }  
     }
 }

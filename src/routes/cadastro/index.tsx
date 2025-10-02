@@ -3,8 +3,11 @@ import Input from "../../component/Input";
 import Button from "../../component/Button";
 import { useForm } from "react-hook-form";
 import type { IDataForm } from "../../interfaces/IdataForm";
+import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
+
+    const navigate = useNavigate();
 
     const {
         register,
@@ -12,12 +15,16 @@ const Cadastro = () => {
         formState: { errors}
     } = useForm<IDataForm>();
 
+    const onSubmit = (data: IDataForm) => {
+        alert(JSON.stringify(data));
+    }
+
   return (
     <section className="section">
       <div>
         <h1 className="title">Cadastrar Usuário</h1>
       </div>
-      <form className="card">
+      <form className="card" onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input
             register={register}
@@ -28,7 +35,7 @@ const Cadastro = () => {
             label="Name *"
             icon={<UsersRound className="text-white/70" />}
           />
-          {errors?.name?.type === 'required' && (
+          {errors.name?.type === 'required' && (
             <p className="p-errors__input">Nome é obrigatório.</p>
           )}
         </div>
@@ -42,7 +49,7 @@ const Cadastro = () => {
             label="Username *"
             icon={<User className="text-white/70" />}
           />
-          {errors?.username?.type === 'required' && (
+          {errors.username?.type === 'required' && (
             <p className="p-errors__input">Nome do usuário é obrigatório.</p>
           )}
         </div>
@@ -56,11 +63,11 @@ const Cadastro = () => {
             label="Email *"
             icon={<Mail className="text-white/70" />}
           />
-          {errors?.email?.type === 'required' && (
+          {errors.email?.type === 'required' && (
             <p className="p-errors__input">Email é obrigatório.</p>
           )}
         </div>
-        <Button type="submit" onClick={function(){alert("Funciono")}}>
+        <Button type="submit">
             Cadastrar
         </Button>
       </form>

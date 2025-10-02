@@ -24,7 +24,7 @@ const Cadastro = () => {
             rules={{required: true}}
             id="name"
             name="name"
-            placeholder="Digite Seu name"
+            placeholder="Digite Seu Nome"
             label="Name *"
             icon={<UsersRound className="text-white/70" />}
           />

@@ -7,17 +7,43 @@ import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const {
-        register,
-        handleSubmit,
-        formState: { errors}
-    } = useForm<IDataForm>();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<IDataForm>();
 
-    const onSubmit = (data: IDataForm) => {
-        alert(JSON.stringify(data));
+  const onSubmit = async (data: IDataForm) => {
+    if (data) {
+
+      const BASE_URL:string = "http://localhost:3000/users";
+
+      try {
+
+        const response = await fetch(BASE_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data), 
+        });
+
+        if(response.status != 201) {
+          console.error('Failed to create post:', response.statusText);
+          alert("Erro ao cadastrar usuário");
+        } else {
+          navigate("/login");
+          const data = await response.json();
+          return data;
+        }
+
+      } catch (error) {
+        console.error("Erro ao cadastrar usuário:", error);
+      }
     }
+  }
 
   return (
     <section className="section">
@@ -28,7 +54,7 @@ const Cadastro = () => {
         <div>
           <Input
             register={register}
-            rules={{required: true}}
+            rules={{ required: true }}
             id="name"
             name="name"
             placeholder="Digite Seu Nome"
@@ -42,7 +68,7 @@ const Cadastro = () => {
         <div>
           <Input
             register={register}
-            rules={{required: true}}
+            rules={{ required: true }}
             id="username"
             name="username"
             placeholder="Digite Seu Username"
@@ -56,7 +82,7 @@ const Cadastro = () => {
         <div>
           <Input
             register={register}
-            rules={{required: true}}
+            rules={{ required: true }}
             id="email"
             name="email"
             placeholder="Digite Seu Email"
@@ -68,7 +94,7 @@ const Cadastro = () => {
           )}
         </div>
         <Button type="submit">
-            Cadastrar
+          Cadastrar
         </Button>
       </form>
     </section>

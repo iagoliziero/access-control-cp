@@ -6,6 +6,10 @@
         @apply text-lg font-semibold
     }
 
+    h1 {
+        @apply text-4xl font-bold text-emerald-700/70 text-center mb-10;
+    }
+
     .header {
         @apply w-screen border-b-1 p-5 text-center text-white/90 flex items-center justify-around;
 

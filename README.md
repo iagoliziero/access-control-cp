@@ -1,73 +1,98 @@
-# React + TypeScript + Vite
+# Access Control CP
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto desenvolvido como parte das atividades da faculdade. O **Access Control CP** é um sistema de controle de acesso de usuários, com funcionalidades de cadastro, login e visualização de dados.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades
 
-## React Compiler
+- Cadastro de usuários com **nome, username e email**.  
+- Login de usuários com validação no **localStorage**.  
+- Botão de visualização de dados disponível **apenas quando o usuário está logado**.  
+- Drop-up menu exibindo informações do usuário.  
+- Persistência de login usando `localStorage`.  
+- Layout responsivo com fundo personalizado e design moderno.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tecnologias
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **React.js** – Biblioteca principal para a construção do front-end.  
+- **TypeScript** – Tipagem estática para maior segurança no código.  
+- **React Hook Form** – Gerenciamento de formulários e validação.  
+- **Tailwind CSS** – Estilização rápida e responsiva.  
+- **React Router DOM** – Navegação entre páginas.  
+- **Lucide React** – Biblioteca de ícones.  
+- **Fetch API** – Comunicação com backend (API REST simulada via `.env`).
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Estrutura do Projeto
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+access-control-cp/
+│
+├─ src/
+│  ├─ component/      # Componentes reutilizáveis (Header, Footer, Button, Input)
+│  ├─ routes/         # Páginas (Cadastro, Login, Home)
+│  ├─ interfaces/     # Tipagens TypeScript (IDataForm, ILogin)
+│  ├─ App.tsx         # Componente principal (Layout)
+│  └─ main.tsx        # Entry point do React
+│
+├─ public/            # Arquivos públicos (imagens, favicon)
+├─ package.json
+├─ tsconfig.json
+└─ README.md
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+````
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+---
+
+## Instalação
+
+1. Clone o repositório:
+
+```bash
+git clone https://github.com/seu-usuario/access-control-cp.git
+cd access-control-cp
+````
+
+2. Instale as dependências:
+
+```bash
+npm install
 ```
+
+3. Crie um arquivo `.env` na raiz do projeto com a URL da API:
+
+```env
+
+VITE_API_URL=http://localhost:3000/users
+
+```
+
+4. Rode o projeto:
+
+```bash
+npm run dev
+```
+
+O projeto estará disponível em `http://localhost:5173` (ou porta definida pelo Vite).
+
+---
+
+## Uso
+
+* **Cadastro:** Preencha nome, username e email.
+* **Login:** Entre com username e email cadastrados.
+* **Visualizar dados:** Clique no botão “Ver dados” após o login para abrir o DropUpMenu com informações do usuário.
+
+---
+
+## Observações
+
+* O login é persistente via `localStorage`.
+* O botão de visualização só aparece se `localStorage.loggedIn === "true"`.
+* O projeto é voltado para fins acadêmicos.
+

@@ -96,3 +96,8 @@ O projeto estará disponível em `http://localhost:5173` (ou porta definida pelo
 * O botão de visualização só aparece se `localStorage.loggedIn === "true"`.
 * O projeto é voltado para fins acadêmicos.
 
+## Feito Por
+* Iago Liziero - RM564063
+* Vitor Dias - RM565422
+* Enrico Delesporte - RM565760
+

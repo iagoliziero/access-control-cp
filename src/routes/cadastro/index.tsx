@@ -2,7 +2,7 @@ import { Mail, User, UsersRound } from "lucide-react";
 import Input from "../../component/Input";
 import Button from "../../component/Button";
 import { useForm } from "react-hook-form";
-import type { IDataForm } from "../../interfaces/IdataForm";
+import type { IDataForm } from "../../interfaces/IDataForm";
 import { useNavigate } from "react-router-dom";
 
 const Cadastro = () => {
@@ -18,11 +18,11 @@ const Cadastro = () => {
   const onSubmit = async (data: IDataForm) => {
     if (data) {
 
-      const BASE_URL:string = "http://localhost:3000/users";
+      const BASE_URL:string = import.meta.env.VITE_API_URL;
 
       try {
         
-        const checkResponse  = await fetch(`${BASE_URL}?email=${data.email}`);
+        const checkResponse  = await fetch(`${BASE_URL}?email=${data.email}&username=${data.username}`);
         const existingUsers = await checkResponse.json();
 
         if (existingUsers.length > 0) {
@@ -43,7 +43,7 @@ const Cadastro = () => {
           alert("Erro ao cadastrar usuário");
         } else {
           navigate("/login");
-          const data = await response.json();
+          const data: IDataForm = await response.json();
           return data;
         }
 

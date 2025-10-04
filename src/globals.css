@@ -7,8 +7,25 @@
     }
 
     .header {
-        @apply w-screen border-b-1 p-5 text-center text-white/90;
+        @apply w-screen border-b-1 p-5 text-center text-white/90 flex items-center justify-around;
+
+        & .ul__nav {
+            @apply flex gap-5;
+
+            & li{
+                @apply list-none text-white/90 font-semibold cursor-pointer hover:text-emerald-700/70 transition-all duration-300;
+
+                & button {
+                    @apply cursor-pointer;
+                }
+            }
+        }
     }
+
+    .btn__app {
+        @apply fixed cursor-pointer right-44 m-30 bottom-0 py-3 px-6 bg-gradient-to-br from-green-500 to-emerald-700 flex gap-4 rounded-full shadow-md text-white;
+    }
+
 
     .footer {
         @apply w-screen border-t-1 p-5 text-center text-white/90;
